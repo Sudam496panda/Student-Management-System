@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Students
+{% endblock %}
+
+{% block content %}
+
+<div class="row mb-4">
+
+
+<div class="col-md-12">
+
+    <form method="GET" action="/">
+
+        <div class="input-group">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search Student Name..."
+                   value="{{ search }}">
+
+            <button class="btn btn-primary"
+                    type="submit">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+</div>
+
+<div class="card shadow
+
+<div class="card-header bg-dark text-white">
+
+  <h4 class="p-2 mb-1">
+    Student List
+</h4>
+</div>
+
+<div class="card-body">
+
+    <div class="table-responsive mt-2">
+
+        <table class="table table-bordered table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+
+                    {% if session.get('admin') %}
+                    <th>Action</th>
+                    {% endif %}
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for student in students.items %}
+
+                <tr>
+
+                    <td>
+                        {{ loop.index + ((students.page - 1) * students.per_page) }}
+                    </td>
+
+                    <td>
+
+                        {% if student.photo %}
+
+                        <img src="{{ url_for('static', filename='uploads/' + student.photo) }}"
+                             width="70"
+                             height="70"
+                             class="rounded">
+
+                        {% else %}
+
+                        No Photo
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>{{ student.name }}</td>
+
+                    <td>{{ student.age }}</td>
+
+                    <td>{{ student.course }}</td>
+
+                    {% if session.get('admin') %}
+
+                    <td>
+
+                        <a href="/edit/{{ student.id }}"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a href="/delete/{{ student.id }}"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete this student?')">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                    {% endif %}
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<!-- Pagination -->
+
+<nav class="mt-4">
+
+
+<ul class="pagination justify-content-center">
+
+    {% if students.has_prev %}
+
+    <li class="page-item">
+
+        <a class="page-link"
+           href="{{ url_for('index', page=students.prev_num, search=search) }}">
+
+            Previous
+
+        </a>
+
+    </li>
+
+    {% endif %}
+
+    {% for page_num in students.iter_pages() %}
+
+        {% if page_num %}
+
+            {% if page_num == students.page %}
+
+            <li class="page-item active">
+
+                <span class="page-link">
+                    {{ page_num }}
+                </span>
+
+            </li>
+
+            {% else %}
+
+            <li class="page-item">
+
+                <a class="page-link"
+                   href="{{ url_for('index', page=page_num, search=search) }}">
+
+                    {{ page_num }}
+
+                </a>
+
+            </li>
+
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if students.has_next %}
+
+    <li class="page-item">
+
+        <a class="page-link"
+           href="{{ url_for('index', page=students.next_num, search=search) }}">
+
+            Next
+
+        </a>
+
+    </li>
+
+    {% endif %}
+
+</ul>
+
+
+</nav>
+
+{% endblock %}

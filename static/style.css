@@ -1,0 +1,237 @@
+/* ==========================
+Global Styles
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#f4f6f9;
+font-family:Arial, sans-serif;
+min-height:100vh;
+}
+
+/* ==========================
+Navbar
+========================== */
+
+.navbar-brand{
+font-weight:bold;
+font-size:22px;
+}
+
+.navbar{
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ==========================
+Cards
+========================== */
+
+.card{
+border:none;
+border-radius:15px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-2px);
+}
+
+.card-header{
+font-weight:bold;
+}
+
+/* ==========================
+Table
+========================== */
+
+.table{
+margin-bottom:0;
+}
+
+.table th{
+text-align:center;
+vertical-align:middle;
+}
+
+.table td{
+text-align:center;
+vertical-align:middle;
+}
+
+.table img{
+object-fit:cover;
+border-radius:8px;
+}
+
+/* ==========================
+Student Images
+========================== */
+
+.student-photo{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+border:2px solid #ddd;
+}
+
+ 
+.btn{
+border-radius:8px;
+}
+
+.btn:hover{
+transform:scale(1.02);
+}
+
+/* ==========================
+Forms
+========================== */
+
+.form-control{
+border-radius:8px;
+}
+
+.form-control:focus{
+box-shadow:none;
+border-color:#0d6efd;
+}
+
+/* ==========================
+Alerts
+========================== */
+
+.alert{
+border-radius:10px;
+}
+
+/* ==========================
+Pagination
+========================== */
+
+.pagination .page-link{
+border-radius:6px;
+margin:0 3px;
+}
+
+/* ==========================
+Tablet
+========================== */
+
+@media(max-width:768px){
+
+
+.navbar-brand{
+    font-size:18px;
+}
+
+.table{
+    font-size:14px;
+}
+
+.table img{
+    width:60px;
+    height:60px;
+}
+
+.btn{
+    font-size:14px;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.form-control{
+    font-size:14px;
+}
+
+
+}
+
+/* ==========================
+Mobile
+========================== */
+
+@media(max-width:576px){
+ 
+ .container .navbar-brand{
+    text-align: center;
+    font-size: 21px;
+    margin-right: 20px;
+ }
+ .container {
+    text-align: center;
+ }
+body{
+    padding-bottom:20px;
+}
+
+.navbar-brand{
+    font-size:16px;
+    
+}
+
+.table{
+    font-size:13px;
+    
+}
+
+.table img{
+    width:40px;
+    height:50px;
+}
+
+.btn{
+    font-size:12px;
+    padding:6px 10px;
+}
+
+.card-body{
+    padding:5px;
+     
+}
+
+.form-control{
+    font-size:13px;
+}
+
+h3,h4{
+    font-size:18px;
+}
+ 
+
+}
+
+/* ==========================
+Laptop
+========================== */
+
+@media(min-width:769px) and (max-width:1440px){
+
+
+.container{
+    max-width:1100px;
+}
+
+
+}
+
+/* ==========================
+Large Desktop
+========================== */
+
+@media(min-width:1441px){
+.container{
+    max-width:1300px;
+}
+ 
+
+}
+

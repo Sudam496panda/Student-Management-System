@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Student
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+
+<div class="col-lg-6 col-md-8">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+
+            <h3 class="mb-0 text-center">
+                Add Student
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Student Name
+                    </label>
+
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Age
+                    </label>
+
+                    <input type="number"
+                           name="age"
+                           class="form-control"
+                           required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Course
+                    </label>
+
+                    <input type="text"
+                           name="course"
+                           class="form-control"
+                           required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Student Photo
+                    </label>
+
+                    <input type="file"
+                           name="photo"
+                           class="form-control"
+                           accept="image/*">
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success w-100">
+
+                    Save Student
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}
