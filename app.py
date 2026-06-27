@@ -15,10 +15,7 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = SQLAlchemy(app)
-
-# Admin Credentials
-# ADMIN_USERNAME = "bapi"
-# ADMIN_PASSWORD = "bapi752"
+ 
 load_dotenv()
 
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
